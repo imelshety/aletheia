@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 @import 'tailwindcss';
 
 @theme {
@@ -5,4 +6,5 @@
   --color-primary-hover: #e62f34;
   --color-primary-active: #cc2a2e;
   --color-primary-disabled: #f5b5b7;
+  --font-sans: 'Manrope', sans-serif;
 }
