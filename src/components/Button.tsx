@@ -1,37 +1,23 @@
+import * as React from 'react';
+
 interface ButtonProps {
-  variant?: 'primary';
-  size?: 'sm' | 'md' | 'lg';
   disabled?: boolean;
   children: React.ReactNode;
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
-  className?: string;
 }
 
-export function Button({
-  variant = 'primary',
-  size = 'md',
-  disabled = false,
-  children,
-  onClick,
-  type = 'button',
-  className = '',
-}: ButtonProps) {
+export function Button({ disabled = false, children, onClick, type = 'button' }: ButtonProps) {
   const commonClasses =
-    'font-semibold rounded-lg focus:outline-none transition-colors duration-200 ' +
+    'w-full font-semibold rounded-lg focus:outline-none transition-colors duration-200 ' +
     'focus-visible:ring-2 focus-visible:ring-offset-2';
 
-  const sizeClasses = {
-    sm: 'py-1.5 px-3 text-sm',
-    md: 'py-2 px-4 text-base',
-    lg: 'py-3 px-6 text-lg',
-  };
+  const variantClasses =
+    'text-white bg-brand hover:bg-brand-dark focus:ring-brand active:bg-brand-darker disabled:bg-brand-muted';
 
-  const variantClasses = {
-    primary: 'text-white bg-brand hover:bg-brand-dark focus:ring-brand active:bg-brand-darker disabled:bg-brand-muted',
-  };
+  const sizeClasses = 'py-2 px-4 text-base';
 
-  const buttonClasses = `${commonClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${className}`;
+  const buttonClasses = `${commonClasses} ${sizeClasses} ${variantClasses}`;
 
   return (
     <button type={type} onClick={disabled ? undefined : onClick} disabled={disabled} className={buttonClasses}>
