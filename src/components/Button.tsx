@@ -28,8 +28,7 @@ export function Button({
   };
 
   const variantClasses = {
-    primary:
-      'text-white bg-[var(--color-brand)] hover:bg-[var(--color-brand-dark)] focus:ring-[#FF343A] active:bg-[var(--color-brand-darker)] disabled:bg-[var(--color-brand-muted)] ',
+    primary: 'text-white bg-brand hover:bg-brand-dark focus:ring-brand active:bg-brand-darker disabled:bg-brand-muted',
   };
 
   const buttonClasses = `${commonClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${className}`;
