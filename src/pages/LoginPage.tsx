@@ -15,9 +15,7 @@ export function LoginPage() {
               <h3 className='text-2xl font-bold my-3 mt-5'>Sign In</h3>
               <p className='text-sm font-medium'>Aletheia</p>
               <form className='mt-6'>
-                <Button type='button' className='w-full' size={'md'}>
-                  Sign In
-                </Button>
+                <Button type='button'>Sign In</Button>
               </form>
             </div>
           </div>
