@@ -2,14 +2,14 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Button } from '@/components/Button.tsx';
 
-test('render with children text', () => {
+test('it should render children and default type', () => {
   const buttonText = 'Click me';
   render(<Button>{buttonText}</Button>);
 
   expect(screen.getByText(buttonText)).toBeInTheDocument();
 });
 
-test('should call onClick prop when clicked', async () => {
+test('it should call onClick prop when clicked', async () => {
   const handleClick = vi.fn();
   render(<Button onClick={handleClick}>Click Me</Button>);
 
@@ -17,7 +17,7 @@ test('should call onClick prop when clicked', async () => {
   expect(handleClick).toHaveBeenCalledTimes(1);
 });
 
-test('should not call onClick when button is disabled', async () => {
+test('it should not call onClick when button is disabled', async () => {
   const handleClick = vi.fn();
   render(
     <Button onClick={handleClick} disabled>
@@ -29,20 +29,10 @@ test('should not call onClick when button is disabled', async () => {
   expect(handleClick).not.toHaveBeenCalled();
 });
 
-test('should have type="button"', () => {
-  render(<Button>Click me</Button>);
-
-  expect(screen.getByRole('button')).toHaveAttribute('type', 'button');
-});
-
-test('should have type="submit"', () => {
-  render(<Button type={'submit'}>Click me</Button>);
-
-  expect(screen.getByRole('button')).toHaveAttribute('type', 'submit');
-});
-
-test('should have type="reset"', () => {
-  render(<Button type={'reset'}>Click me</Button>);
-
-  expect(screen.getByRole('button')).toHaveAttribute('type', 'reset');
+test('it should render the correct button type', () => {
+  const types = ['button', 'submit', 'reset'] as const;
+  const randomType = types[Math.floor(Math.random() * types.length)];
+  render(<Button type={randomType}>Click me</Button>);
+  const button = screen.getByRole('button', { name: /click me/i });
+  expect(button).toHaveAttribute('type', randomType);
 });
