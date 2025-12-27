@@ -3,16 +3,18 @@ import userEvent from '@testing-library/user-event';
 import { Button } from '@/components/Button.tsx';
 
 test('it should render children and default type', () => {
-  const buttonText = 'Click me';
-  render(<Button>{buttonText}</Button>);
+  render(<Button>Click me</Button>);
 
-  expect(screen.getByText(buttonText)).toBeInTheDocument();
+  const button = screen.getByRole('button', { name: /click me/i });
+
+  expect(button).toBeInTheDocument();
+  expect(button).toHaveAttribute('type', 'button');
 });
 
 test('it should call onClick prop when clicked', async () => {
   const handleClick = vi.fn();
-  render(<Button onClick={handleClick}>Click Me</Button>);
 
+  render(<Button onClick={handleClick}>Click Me</Button>);
   await userEvent.click(screen.getByText(/click me/i));
 
   expect(handleClick).toHaveBeenCalledTimes(1);
@@ -20,12 +22,12 @@ test('it should call onClick prop when clicked', async () => {
 
 test('it should not call onClick when button is disabled', async () => {
   const handleClick = vi.fn();
+
   render(
     <Button onClick={handleClick} disabled>
-      Click me
+      Click me{' '}
     </Button>,
   );
-
   await userEvent.click(screen.getByRole('button'));
 
   expect(handleClick).not.toHaveBeenCalled();
@@ -34,8 +36,8 @@ test('it should not call onClick when button is disabled', async () => {
 test('it should render the correct button type', () => {
   const types = ['button', 'submit', 'reset'] as const;
   const randomType = types[Math.floor(Math.random() * types.length)];
-  render(<Button type={randomType}>Click me</Button>);
 
+  render(<Button type={randomType}>Click me</Button>);
   const button = screen.getByRole('button', { name: /click me/i });
 
   expect(button).toHaveAttribute('type', randomType);
