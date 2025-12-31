@@ -13,7 +13,7 @@ test('it should apply custom width and height props', () => {
   expect(logoImage).toHaveAttribute('height', String(height));
 });
 
-test('it should render component without custom width and height props', () => {
+test('it should not add default height and width', () => {
   render(<Logo />);
 
   const logoImage = screen.getByRole('img', { name: /aletheia/i });
