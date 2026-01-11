@@ -2,10 +2,15 @@ import { DashboardLayout } from '@/pages/DashboardLayout.tsx';
 import { DashboardPage } from '@/pages/DashboardPage.tsx';
 import { LoginPage } from '@/pages/LoginPage.tsx';
 import { createBrowserRouter, Outlet } from 'react-router';
+import { SidebarLayout } from '@/components/ui';
 
 export const router = createBrowserRouter([
   {
-    Component: Outlet,
+    element: (
+      <SidebarLayout>
+        <Outlet />
+      </SidebarLayout>
+    ),
     children: [
       {
         path: '/',
