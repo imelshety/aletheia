@@ -1,5 +1,4 @@
-import { Button, Logo } from '@/components';
-import { Link } from 'react-router';
+import { Button, Link, Logo } from '@/components';
 
 export function LoginPage() {
   return (
@@ -8,7 +7,7 @@ export function LoginPage() {
         <div className='xl:col-span-4 lg:col-span-6 col-span-12 sm:px-12 px-4'>
           <div className='flex h-screen items-center px-3 lg:justify-start justify-center'>
             <div className='max-w-md w-full mx-auto'>
-              <Link to='/'>
+              <Link to='/' variant={'unstyled'}>
                 <Logo width={42} height={42} />
               </Link>
               <h3 className='text-2xl font-bold my-3 mt-5'>Sign In</h3>
