@@ -2,57 +2,43 @@ import { render, screen } from '@testing-library/react';
 import { Link } from './Link';
 import { MemoryRouter } from 'react-router';
 
-test('it should render children', () => {
+test('it should render Link with children', () => {
   render(
     <MemoryRouter>
-      <Link to='/'>Go To Dashboard Page</Link>
+      <Link to='/dashboard'>Dashboard Page</Link>
     </MemoryRouter>,
   );
 
-  const link = screen.getByRole('link', { name: /Go To Dashboard Page/i });
+  const link = screen.getByRole('link', { name: /Dashboard Page/i });
 
   expect(link).toBeInTheDocument();
+  expect(link).toHaveAttribute('href', '/dashboard');
 });
 
-test('it should have the correct href attribute', () => {
-  const targetUrl = '/dashboard';
+test('it should apply styled classes when styled prop is true', () => {
   render(
     <MemoryRouter>
-      <Link to={targetUrl}>Go To Dashboard Page</Link>
-    </MemoryRouter>,
-  );
-
-  const link = screen.getByRole('link', { name: /dashboard/i });
-
-  expect(link).toHaveAttribute('href', targetUrl);
-});
-
-test('it should apply styled classes when variant is styled', () => {
-  const variant = 'styled';
-  render(
-    <MemoryRouter>
-      <Link to='/' variant={variant}>
-        Go To Dashboard Page
+      <Link to='/' styled={true}>
+        Dashboard Page
       </Link>
     </MemoryRouter>,
   );
 
-  const link = screen.getByRole('link');
+  const link = screen.getByRole('link', { name: /Dashboard Page/i });
 
-  expect(link).toHaveClass('flex', 'items-center', 'text-gray-500');
+  expect(link).toHaveClass('text-brand');
 });
 
-test('it should not apply styled classes when variant is unstyled', () => {
-  const variant = 'unstyled';
+test('it should not apply styled classes when styled prop is false', () => {
   render(
     <MemoryRouter>
-      <Link to='/' variant={variant}>
-        Go To Dashboard Page
+      <Link to='/' styled={false}>
+        Dashboard Page
       </Link>
     </MemoryRouter>,
   );
 
-  const link = screen.getByRole('link');
+  const link = screen.getByRole('link', { name: /Dashboard Page/i });
 
-  expect(link).not.toHaveClass('text-gray-500');
+  expect(link).not.toHaveClass('text-brand');
 });

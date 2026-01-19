@@ -17,7 +17,7 @@ const meta = {
     ),
   ],
   argTypes: {
-    variant: {
+    styled: {
       control: 'select',
       options: ['styled', 'unstyled'],
     },
@@ -31,14 +31,14 @@ export const styled: Story = {
   args: {
     to: '/',
     children: 'Styled Link',
-    variant: 'styled',
+    styled: true,
   },
 };
 
 export const unstyled: Story = {
   args: {
     to: '/',
-    variant: 'unstyled',
+    styled: false,
     children: 'Unstyled Link',
   },
 };
