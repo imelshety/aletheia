@@ -3,16 +3,13 @@ import { Link as RouterLink } from 'react-router';
 
 export interface LinkProps {
   children: ReactNode;
-  styled?: boolean;
   unstyled?: boolean;
   to: string;
 }
 
-export function Link({ children, styled, unstyled, to }: LinkProps) {
-  const isStyled = styled && !unstyled;
-
+export function Link({ children, unstyled, to }: LinkProps) {
   return (
-    <RouterLink to={to} className={` ${isStyled ? 'text-brand hover:underline' : ''}`}>
+    <RouterLink to={to} className={` ${unstyled ? '' : 'text-brand hover:underline'}`}>
       {children}
     </RouterLink>
   );

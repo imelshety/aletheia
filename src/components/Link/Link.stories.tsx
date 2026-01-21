@@ -25,7 +25,7 @@ export const StyledLink: Story = {
   args: {
     to: '/',
     children: 'Styled Link',
-    styled: true,
+    unstyled: false,
   },
 };
 
