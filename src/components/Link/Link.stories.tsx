@@ -16,18 +16,12 @@ const meta = {
       </MemoryRouter>
     ),
   ],
-  argTypes: {
-    styled: {
-      control: 'select',
-      options: ['styled', 'unstyled'],
-    },
-  },
 } satisfies Meta<typeof Link>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const styled: Story = {
+export const StyledLink: Story = {
   args: {
     to: '/',
     children: 'Styled Link',
@@ -35,10 +29,10 @@ export const styled: Story = {
   },
 };
 
-export const unstyled: Story = {
+export const UnStyledLink: Story = {
   args: {
     to: '/',
-    styled: false,
+    unstyled: true,
     children: 'Unstyled Link',
   },
 };

@@ -18,7 +18,7 @@ test('it should render Link with children', () => {
 test('it should apply styled classes when styled prop is true', () => {
   render(
     <MemoryRouter>
-      <Link to='/' styled={true}>
+      <Link to='/' styled>
         Dashboard Page
       </Link>
     </MemoryRouter>,
@@ -32,7 +32,7 @@ test('it should apply styled classes when styled prop is true', () => {
 test('it should not apply styled classes when styled prop is false', () => {
   render(
     <MemoryRouter>
-      <Link to='/' styled={false}>
+      <Link to='/' unstyled>
         Dashboard Page
       </Link>
     </MemoryRouter>,
