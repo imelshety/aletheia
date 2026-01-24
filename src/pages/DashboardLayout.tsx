@@ -11,7 +11,7 @@ export function DashboardLayout() {
           <div className='bg-[#f4f7fb] w-20 h-full fixed start-0 z-10 border-[#e5e5e5]'>Mini-Sidebar</div>
           <aside className='fixed h-full top-0 left-20 w-60 bg-white start-18'>
             <div className='px-6 py-4 flex items-center'>
-              <Link to='/' unstyled>
+              <Link to='/'>
                 <div className='flex items-center gap-1'>
                   <Logo width={40} height={40} />
                   <h1 className='text-sm font-semibold text-gray-500 hover:text-secondary'>Aletheia</h1>
