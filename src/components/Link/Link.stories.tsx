@@ -25,14 +25,14 @@ export const StyledLink: Story = {
   args: {
     to: '/',
     children: 'Styled Link',
-    styled: true,
+    unstyled: false,
   },
 };
 
 export const UnStyledLink: Story = {
   args: {
     to: '/',
-    styled: false,
+    unstyled: true,
     children: 'Unstyled Link',
   },
 };

@@ -17,9 +17,7 @@ test('it should render Link with correct href attribute', () => {
 test('it should apply styled classes when styled prop is true', () => {
   render(
     <MemoryRouter>
-      <Link to='/' styled>
-        Dashboard Page
-      </Link>
+      <Link to='/'>Dashboard Page</Link>
     </MemoryRouter>,
   );
 
@@ -31,7 +29,9 @@ test('it should apply styled classes when styled prop is true', () => {
 test('it should not apply styled classes when styled prop is false', () => {
   render(
     <MemoryRouter>
-      <Link to='/'>Dashboard Page</Link>
+      <Link to='/' unstyled>
+        Dashboard Page
+      </Link>
     </MemoryRouter>,
   );
 
