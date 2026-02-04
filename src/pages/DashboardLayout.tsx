@@ -1,7 +1,6 @@
 import userSrc from '@/assets/user-f-512.png';
 import { ProtectedRoute } from '@/auth';
-import { Outlet } from 'react-router';
-import { Link, Logo } from '@/components';
+import { Link, Logo, Outlet } from '@/components';
 
 export function DashboardLayout() {
   return (

@@ -1,5 +1,5 @@
+import { MemoryRouter } from '@/components';
 import type { Meta, StoryObj } from '@storybook/react';
-import { MemoryRouter } from 'react-router';
 import { Link } from './Link';
 
 const meta = {

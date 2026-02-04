@@ -1,6 +1,6 @@
+import { MemoryRouter } from '@/components';
 import { render, screen } from '@testing-library/react';
 import { Link } from './Link';
-import { MemoryRouter } from 'react-router';
 
 test('it should render Link with correct href attribute', () => {
   render(
