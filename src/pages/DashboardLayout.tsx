@@ -1,7 +1,6 @@
 import userSrc from '@/assets/user-f-512.png';
 import { ProtectedRoute } from '@/auth';
-import { Link, Outlet } from 'react-router';
-import { Logo } from '@/components';
+import { Link, Logo, Outlet } from '@/components';
 
 export function DashboardLayout() {
   return (
@@ -11,9 +10,11 @@ export function DashboardLayout() {
           <div className='bg-[#f4f7fb] w-20 h-full fixed start-0 z-10 border-[#e5e5e5]'>Mini-Sidebar</div>
           <aside className='fixed h-full top-0 left-20 w-60 bg-white start-18'>
             <div className='px-6 py-4 flex items-center'>
-              <Link to='/' className='flex items-center gap-1 text-gray-500 hover:text-gray-800'>
-                <Logo width={40} height={40} />
-                <h1 className='text-sm font-semibold'>Aletheia</h1>
+              <Link to='/' unstyled>
+                <div className='flex items-center gap-1'>
+                  <Logo width={40} height={40} />
+                  <h1 className='text-sm font-semibold text-gray-500 hover:text-secondary'>Aletheia</h1>
+                </div>
               </Link>
             </div>
             <div className='relative h-[calc(100vh-85px)] overflow-y-auto'>
